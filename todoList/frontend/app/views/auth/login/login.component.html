@@ -1,0 +1,85 @@
+<section class="login-content">
+  <div class="incorrect-container" *ngIf="invalid">
+    <div class="incorrect-content">
+      <p class="incorrect-credentials">
+        <span><i class="fa-solid fa-circle-info"></i></span> Invalid Credentials
+      </p>
+      <button class="buttonX" (click)="closeIncorrectCredentials()">
+        <i class="fa-solid fa-x"></i>
+      </button>
+    </div>
+  </div>
+  <header>
+    <h1>Sign In</h1>
+  </header>
+  <div class="form-container">
+    <form action="" (ngSubmit)="onSubmit()" [formGroup]="requestModel">
+      <div class="input">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username"
+          formControlName="username"
+          (blur)="checkError('username')"
+          (input)="checkError('username')"
+          (focus)="checkError('username')"
+        />
+      </div>
+      <div class="input">
+        <input
+          type="{{ showPass ? 'text' : 'password' }}"
+          name="password"
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+          (blur)="checkError('password')"
+          (input)="checkError('password')"
+          (focus)="checkError('password')"
+        />
+        <span class="toggle-icon" (click)="show()"
+          ><i
+            class="fa-solid password"
+            [ngClass]="{
+              'fa-eye-slash': !showPass,
+              'fa-eye': showPass
+            }"
+          ></i
+        ></span>
+      </div>
+
+      <button type="submit" class="btnSubmit">Sign In</button>
+    </form>
+  </div>
+  <div class="other-method">
+    <section class="or-container">
+      <span class="line"></span>
+      <p>or</p>
+      <span class="line"></span>
+    </section>
+    <section class="socials">
+      <div class="button-container">
+        <button class="social-btn">Google</button>
+      </div>
+      <div class="button-container">
+        <button class="social-btn">Facebook</button>
+      </div>
+    </section>
+  </div>
+  <div class="sign-up-container">
+    <span
+      ><a routerLink="../register">
+        Don't you have an account? <span class="sign-up">Sign up</span></a
+      ></span
+    >
+  </div>
+
+  <div class="card-container" *ngIf="loadingCard">
+    <div class="card-content">
+      <div class="loader"></div>
+      <div class="card-text">
+        <h4>Loading {{ dot }}</h4>
+      </div>
+    </div>
+  </div>
+</section>

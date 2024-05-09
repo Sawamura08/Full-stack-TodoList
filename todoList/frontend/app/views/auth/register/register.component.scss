@@ -1,0 +1,127 @@
+@use "../../../app.component.scss" as *;
+
+.front-page {
+  width: 100%;
+  padding: 1rem;
+  height: 90dvh;
+
+  .signup-page {
+    height: inherit;
+    width: 100%;
+    position: relative;
+
+    .signup-container {
+      width: 100%;
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      transform: translate(-15%, -30%);
+
+      .input-section {
+        width: 100%;
+        padding: 1rem;
+
+        header {
+          h1 {
+            font-size: clamp(1.25rem, 3.2vw, 3.8vw);
+          }
+        }
+
+        form {
+          .input-title {
+            width: inherit;
+            height: 2.5rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 0.25rem;
+            opacity: 0.7;
+
+            .line {
+              width: 33%;
+              height: 1.5px;
+              background-color: $buttonText;
+            }
+
+            h6 {
+              margin: 0;
+              font-size: 1vw;
+              width: 33%;
+              text-align: center;
+            }
+          }
+
+          .user-info {
+            width: inherit;
+            .info {
+              width: inherit;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+
+              margin-block: 0.5rem;
+
+              .label {
+                font-size: 0.8rem;
+                margin-block: 0.25rem;
+                color: $buttonText;
+                opacity: 0.8;
+              }
+
+              .icon {
+                position: absolute;
+                top: 30%;
+                left: 0;
+                transform: translate(50%, 50%);
+                font-size: 1.25rem;
+                opacity: 0.7;
+              }
+
+              input {
+                border: 1px solid $buttonText;
+                outline: none;
+                border-radius: 8px;
+                padding-block: 0.5rem;
+                padding-inline-start: 2rem;
+                font-size: 1rem;
+                font-family: $fonts;
+              }
+
+              input[type="password"] {
+                padding-inline-end: 2rem;
+              }
+            }
+          }
+
+          .credentials {
+            .info:last-child {
+              .icon {
+                transform: translate(50%, 50%);
+              }
+
+              .toggle-icon {
+                position: absolute;
+                top: 20%;
+                right: 10%;
+                transform: translate(75%, 100%);
+                cursor: pointer;
+                opacity: 0.8;
+                color: $buttonText;
+              }
+            }
+          }
+          .button-section {
+            width: inherit;
+
+            .create-acc {
+              @include buttonTheme();
+              width: 100%;
+              margin-block: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

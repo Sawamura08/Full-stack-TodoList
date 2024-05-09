@@ -1,0 +1,100 @@
+<section class="front-page">
+  <div class="signup-page">
+    <div class="signup-container">
+      <section class="input-section">
+        <header>
+          <h1>Sign Up</h1>
+        </header>
+        <form action="" [formGroup]="requestModel" (ngSubmit)="formSubmit()">
+          <section class="user-info">
+            <div class="info">
+              <span class="icon"><i class="fa-solid fa-user"></i></span>
+              <label for="first-name" class="label">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                id="first-name"
+                formControlName="first_name"
+                (blur)="errorChecker('first_name')"
+                (input)="errorChecker('first_name')"
+                (focus)="errorChecker('first_name')"
+              />
+            </div>
+            <div class="info">
+              <span class="icon"><i class="fa-solid fa-user"></i></span>
+              <label for="last-name" class="label">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                id="last-name"
+                formControlName="last_name"
+                (blur)="errorChecker('last_name')"
+                (input)="errorChecker('last_name')"
+                (focus)="errorChecker('last_name')"
+              />
+            </div>
+            <div class="info">
+              <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+              <label for="email" class="label">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                formControlName="email"
+                (blur)="errorChecker('email')"
+                (input)="errorChecker('email')"
+                (focus)="errorChecker('email')"
+              />
+            </div>
+          </section>
+          <div class="input-title">
+            <span class="line"></span>
+            <h6>User Credentials</h6>
+            <span class="line"></span>
+          </div>
+          <section class="user-info credentials">
+            <div class="info">
+              <span class="icon"><i class="fa-solid fa-user"></i></span>
+              <label for="username" class="label">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                formControlName="username"
+                (blur)="errorChecker('username')"
+                (input)="errorChecker('username')"
+                (focus)="errorChecker('username')"
+              />
+            </div>
+            <div class="info">
+              <span class="icon"><i class="fa-solid fa-lock"></i></span>
+              <label for="password" class="label">Password</label>
+              <input
+                type="{{ showPass ? 'text' : 'password' }}"
+                name="password"
+                id="password"
+                class="passInput"
+                formControlName="password"
+                (blur)="errorChecker('password')"
+                (input)="errorChecker('password')"
+                (focus)="errorChecker('password')"
+              />
+              <span class="toggle-icon" (click)="viewPass()"
+                ><i
+                  class="fa-solid fa-eye-slash"
+                  [ngClass]="{
+                    'fa-eye-slash': !showPass,
+                    'fa-eye': showPass
+                  }"
+                ></i
+              ></span>
+            </div>
+          </section>
+          <section class="button-section">
+            <button class="create-acc">Create Account</button>
+          </section>
+        </form>
+      </section>
+    </div>
+  </div>
+</section>

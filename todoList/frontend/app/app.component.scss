@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+// variables
+$darkColor: #111111;
+$headerColor: #212529;
+$buttonColor: #ffd43b;
+$buttonText: #504b2c;
+$fonts: "Lexend Deca", sans-serif;
+$loadingColor: #f08080;
+$textColorDark: #525252;
+$bgSemiDark: #dee2e6;
+
+//list
+$list1: #ff6b6b;
+$list2: #66d9e8;
+
+//predefine design
+@mixin buttonTheme($themeColor: $buttonColor, $themeText: $buttonText) {
+  border-radius: 8px;
+  background-color: $themeColor;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $themeText;
+}

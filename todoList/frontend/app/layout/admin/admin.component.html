@@ -1,0 +1,155 @@
+<main>
+  <div class="hamburger" (click)="navToggle()">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+  <nav class="navigation-container nav">
+    <div class="navigation-contents">
+      <section class="content">
+        <h1 class="menuText">Menu</h1>
+        <!-- search -->
+        <section class="search-container">
+          <div class="search-content">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              class="search"
+              placeholder="Search"
+            />
+          </div>
+        </section>
+        <!-- Task -->
+        <section class="task-container">
+          <div class="task-contents">
+            <h6>Task</h6>
+            <ul class="task-list">
+              <li
+                class="tasks"
+                (click)="taskOnClick(0)"
+                routerLink="../admin/upcoming"
+              >
+                <div class="task-type">
+                  <span class="task-icon"
+                    ><i class="fa-solid fa-angles-right"></i
+                  ></span>
+                  <h5 class="task-title">Upcoming</h5>
+                </div>
+                <span class="task-count"><p class="count">1</p></span>
+              </li>
+              <li
+                class="tasks"
+                (click)="taskOnClick(1)"
+                routerLink="../admin/today"
+              >
+                <div class="task-type">
+                  <span class="task-icon"
+                    ><i class="fa-solid fa-list"></i
+                  ></span>
+                  <h5 class="task-title">Today</h5>
+                </div>
+                <span class="task-count"><p class="count">1</p></span>
+              </li>
+              <li class="tasks" (click)="taskOnClick(2)">
+                <div class="task-type">
+                  <span class="task-icon"
+                    ><i class="fa-solid fa-note-sticky"></i
+                  ></span>
+                  <h5 class="task-title">Sticky Wall</h5>
+                </div>
+                <span class="task-count"><p class="count">1</p></span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- list -->
+        <section class="task-container">
+          <div class="task-contents type-container">
+            <h6>List</h6>
+            <ul class="task-list">
+              <li class="tasks list-type" (click)="taskOnClick(3)">
+                <div class="task-type">
+                  <span class="list-icon"></span>
+                  <h5 class="task-title">Personal</h5>
+                </div>
+                <span class="task-count"><p class="count">1</p></span>
+              </li>
+              <li class="tasks list-type" (click)="taskOnClick(4)">
+                <div class="task-type">
+                  <span class="list-icon"></span>
+                  <h5 class="task-title">Work</h5>
+                </div>
+                <span class="task-count"><p class="count">1</p></span>
+              </li>
+              <li class="tasks list-type" (click)="openModal()">
+                <div class="task-type">
+                  <span class="task-icon"
+                    ><i class="fa-solid fa-plus"></i
+                  ></span>
+                  <h5 class="task-title">Add List</h5>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="logout-container">
+          <div class="log-out" (click)="signOutNow()">
+            <span class="logout-icon"
+              ><i class="fa-solid fa-right-from-bracket"></i
+            ></span>
+            <h5 class="logs">Sign Out</h5>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <div
+      class="modal-container"
+      (click)="modalCloser($event)"
+      *ngIf="isModalOpen"
+    >
+      <div class="add-list-container">
+        <form
+          action=""
+          [formGroup]="requestModel"
+          (ngSubmit)="submitModalInput()"
+        >
+          <div class="forms">
+            <div class="input">
+              <div class="input-list">
+                <label for="name">List Name</label>
+                <input
+                  type="text"
+                  class="listName"
+                  id="name"
+                  placeholder="List Name"
+                  formControlName="typeNames"
+                  appInputError
+                  controlName="typeNames"
+                  [formGroup]="requestModel"
+                />
+              </div>
+              <div class="color-picker">
+                <label for="color">Color:</label>
+                <ngx-colors
+                  ngx-colors-trigger
+                  class="color"
+                  id="color"
+                  formControlName="color"
+                ></ngx-colors>
+              </div>
+            </div>
+            <button class="submit-btn">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <section class="container">
+    <router-outlet></router-outlet>
+  </section>
+</main>

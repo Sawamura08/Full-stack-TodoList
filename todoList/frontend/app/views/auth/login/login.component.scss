@@ -1,0 +1,232 @@
+@use "../../../app.component.scss" as *;
+
+.login-content {
+  width: 100%;
+  height: inherit;
+  position: relative;
+
+  .incorrect-container {
+    width: inherit;
+    padding: 1.5rem;
+    background-color: #c1121f;
+    border-radius: 8px;
+    color: white;
+    margin-block-end: 1rem;
+
+    .incorrect-content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .incorrect-credentials {
+        span {
+          margin-inline-end: 0.5rem;
+        }
+      }
+
+      .buttonX {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+  header {
+    h1 {
+      font-size: clamp(1.25rem, 3.2vw, 3.8vw);
+    }
+  }
+  .form-container {
+    width: 100%;
+    margin-block: 0.7rem;
+    form {
+      width: 100%;
+      .input {
+        margin: 0.5rem;
+        width: inherit;
+
+        input {
+          width: 90%;
+          padding: 0.5rem;
+          font-family: "Lexend Deca", sans-serif;
+          border-radius: 4px;
+          border: 1px solid $buttonText;
+          outline: none;
+        }
+      }
+
+      .input:last-of-type {
+        position: relative;
+        .toggle-icon {
+          width: 5rem;
+          position: absolute;
+          top: 50%;
+          right: 0.5rem;
+          transform: translate(25%, -50%);
+          color: $buttonText;
+          border: none;
+
+          .password {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .btnSubmit {
+        @include buttonTheme();
+        width: 90%;
+        margin-inline: 2%;
+        margin-block: 1rem;
+      }
+    }
+  }
+
+  .other-method {
+    width: 100%;
+
+    .or-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .line {
+        background-color: $buttonText;
+        height: 1px;
+        width: 40%;
+        line-height: 10;
+      }
+
+      p {
+        margin-inline: 1rem;
+      }
+    }
+
+    .socials {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-block: 1rem;
+
+      .button-container {
+        .social-btn {
+          width: clamp(9rem, 10vw, 20vw);
+          padding: 0.5rem 1.25rem;
+          font-size: clamp(1rem, 1.25vw, 1.7vw);
+          font-weight: 600;
+          color: $buttonText;
+          border-radius: 8px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .sign-up-container {
+    width: 100%;
+    text-align: center;
+    span {
+      font-size: 0.8rem;
+
+      a {
+        text-decoration: none;
+
+        .sign-up {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .card-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 1;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px 5px $buttonText;
+
+    .card-content {
+      width: inherit;
+      height: inherit;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      .loader {
+        width: 3rem;
+        height: 3rem;
+        position: relative;
+      }
+
+      .loader::before {
+        content: "";
+        width: 48px;
+        height: 5px;
+        background-color: $buttonColor;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        border-radius: 50%;
+        animation: shadows 0.5s linear infinite;
+      }
+
+      .loader::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #f08080;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 4px;
+
+        animation: jump 0.5s linear infinite;
+      }
+
+      @keyframes jump {
+        15% {
+          border-bottom-right-radius: 3px;
+        }
+        25% {
+          transform: translateY(9px) rotate(22.5deg);
+        }
+        50% {
+          transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+
+          border-bottom-right-radius: 40px;
+        }
+        75% {
+          transform: translateY(9px) rotate(67.5deg);
+        }
+
+        100% {
+          transform: translateY(0) rotate(90deg);
+        }
+      }
+
+      @keyframes shadows {
+        0%,
+        100% {
+          transform: scale(1, 1);
+        }
+
+        50% {
+          transform: scale(1.2, 1);
+        }
+      }
+    }
+  }
+}
